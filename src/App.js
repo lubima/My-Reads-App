@@ -22,7 +22,7 @@ class BooksApp extends React.Component {
             />
             <Route 
               exact 
-              path={'/'} 
+              path={'/search'} 
               render={() => ( 
                 <MyContext.Consumer>
                   {context => <Search {...context}/>}
