@@ -13,6 +13,18 @@ export default class ContextProvider extends Component {
         const wantToRead = books.filter(book => book.shelf==='wantToRead');
         const read = books.filter(book => book.shelf==='read');
         this.setState({books,currentlyReading,wantToRead,read});
+      },
+      updateBook: (book,newShelf,allShelfs) => {
+        const newBooks = this.state.books.map(allBooks => {
+          const foundID = allShelfs[newShelf].find(
+            bookID => bookID===allBooks.id
+          );
+          if(foundID){
+            allBooks.shelf = newShelf;
+          }
+          return allBooks;
+        });
+        this.state.addBooks(newBooks);
       }
     };
   }

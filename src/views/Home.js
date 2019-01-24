@@ -19,9 +19,9 @@ export default class Home extends Component {
               <h1>MyReads</h1>
             </div>
             <div className="list-books-content">
-              <Shelf title={'Currently Reading'} books={this.props.currentlyReading}/>
-        	  <Shelf title={'Want to Read'} books={this.props.wantToRead}/>
-        	  <Shelf title={'Read'} books={this.props.read}/>
+              <Shelf title={'Currently Reading'} books={this.props.currentlyReading} updateBook={this.props.updateBook}/>
+        	  <Shelf title={'Want to Read'} books={this.props.wantToRead} updateBook={this.props.updateBook}/>
+        	  <Shelf title={'Read'} books={this.props.read} updateBook={this.props.updateBook}/>
             </div>
             <SearchButton/>
     	 </div>
