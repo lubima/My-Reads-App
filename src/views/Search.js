@@ -23,6 +23,7 @@ export default class Search extends Component {
     try {
       const query = e.target.value;
       this.setState({ query });
+      //makes sure all the books are shown or the result of the search
       if (query.trim()) {
         const results = await search(query);
         if (results.error) {
@@ -49,6 +50,7 @@ export default class Search extends Component {
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
+          {/* matches the shelf of the book from the Home page */}
             {this.state.books.length > 0 && 
               this.state.books.map(book => {
                 const foundShelfFromHome = this.props.books.find(searchBook => searchBook.id===book.id);
@@ -59,6 +61,7 @@ export default class Search extends Component {
                 }
                 return (<Book key={book.id} {...book} updateBook={this.props.updateBook} />)})
             } 
+            {/* shows No result on screen if there are no books found */}
             {this.state.books.length === 0 && <h1 style={{textAlign:'center'}}>No Results</h1>}
           </ol>
         </div>
